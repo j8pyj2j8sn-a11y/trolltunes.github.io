@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ml">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,19 +20,44 @@ body{
     color:white;
 }
 
-.container{
-    display:flex;
-    min-height:100vh;
+/* MENU BUTTON */
+
+.menu-btn{
+    position:fixed;
+    top:20px;
+    left:20px;
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:12px;
+    background:#22c55e;
+    color:white;
+    font-size:24px;
+    cursor:pointer;
+    z-index:1001;
 }
 
-/* Sidebar */
+.menu-btn:hover{
+    background:#16a34a;
+}
+
+/* SIDEBAR */
 
 .sidebar{
-    width:250px;
-    background:#111827;
-    padding:30px 20px;
     position:fixed;
+    left:-260px;
+    top:0;
+    width:260px;
     height:100%;
+    background:#111827;
+    padding:30px;
+    transition:.3s;
+    z-index:1000;
+    box-shadow:5px 0 20px rgba(0,0,0,.3);
+}
+
+.sidebar.active{
+    left:0;
 }
 
 .logo{
@@ -47,12 +72,12 @@ body{
 }
 
 .sidebar ul li{
-    margin:20px 0;
+    margin-bottom:25px;
 }
 
 .sidebar ul li a{
-    text-decoration:none;
     color:#d1d5db;
+    text-decoration:none;
     font-size:18px;
     transition:.3s;
 }
@@ -61,38 +86,24 @@ body{
     color:#22c55e;
 }
 
-/* Main Content */
+/* MAIN */
 
 .main{
-    margin-left:250px;
     width:100%;
-    padding:30px;
+    padding:90px 25px 30px;
 }
 
-/* Search */
-
-.search{
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:15px;
-    background:#1e293b;
-    color:white;
-    margin-bottom:30px;
-    font-size:16px;
-}
-
-/* Hero */
+/* HERO */
 
 .hero{
     background:linear-gradient(135deg,#16a34a,#22c55e);
     border-radius:25px;
-    padding:50px;
+    padding:60px 40px;
     margin-bottom:35px;
 }
 
 .hero h1{
-    font-size:42px;
+    font-size:45px;
     margin-bottom:10px;
 }
 
@@ -100,20 +111,39 @@ body{
     font-size:18px;
 }
 
-/* Section */
+/* SEARCH */
 
-.section-title{
-    margin-bottom:20px;
-    font-size:28px;
+.search{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:15px;
+    background:#1e293b;
+    color:white;
+    font-size:16px;
+    margin-bottom:30px;
 }
 
-/* Cards */
+.search:focus{
+    outline:none;
+}
+
+/* SECTION */
+
+.section-title{
+    font-size:30px;
+    margin-bottom:25px;
+}
+
+/* GRID */
 
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
     gap:25px;
 }
+
+/* CARD */
 
 .card{
     background:#1e293b;
@@ -128,7 +158,7 @@ body{
 
 .card h3{
     margin-bottom:15px;
-    font-size:20px;
+    line-height:1.5;
 }
 
 audio{
@@ -138,46 +168,40 @@ audio{
 
 .download-btn{
     display:inline-block;
-    text-decoration:none;
     background:#22c55e;
     color:white;
-    padding:10px 20px;
+    text-decoration:none;
+    padding:10px 18px;
     border-radius:10px;
-    font-weight:bold;
+    font-weight:600;
 }
 
 .download-btn:hover{
     background:#16a34a;
 }
 
-/* Footer */
+/* FOOTER */
 
 footer{
     text-align:center;
-    padding:30px;
+    padding:40px 0 20px;
     color:#9ca3af;
 }
 
-/* Mobile */
+/* MOBILE */
 
 @media(max-width:768px){
 
-.sidebar{
-    position:relative;
-    width:100%;
-    height:auto;
-}
-
-.main{
-    margin-left:0;
-}
-
-.container{
-    flex-direction:column;
+.hero{
+    padding:40px 25px;
 }
 
 .hero h1{
-    font-size:30px;
+    font-size:32px;
+}
+
+.section-title{
+    font-size:24px;
 }
 
 }
@@ -186,167 +210,187 @@ footer{
 </head>
 <body>
 
-<div class="container">
+<button class="menu-btn" id="menuBtn">☰</button>
 
-    <!-- Sidebar -->
+<!-- SIDEBAR -->
 
-    <div class="sidebar">
+<div class="sidebar" id="sidebar">
 
-        <div class="logo">
-            🎵 TROLL TUNES
+    <div class="logo">
+        TROLL TUNES
+    </div>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Trending</a></li>
+        <li><a href="#">Dialogues</a></li>
+        <li><a href="#">Downloads</a></li>
+        <li><a href="#">Favorites</a></li>
+    </ul>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+    <input
+        type="text"
+        class="search"
+        id="searchBox"
+        placeholder="Search dialogues..."
+    >
+
+    <div class="hero">
+        <h1>TROLL TUNES</h1>
+        <p>Download your favorite Malayalam troll dialogues and meme sounds.</p>
+    </div>
+
+    <h2 class="section-title">Popular Dialogues</h2>
+
+    <div class="grid" id="songsContainer">
+
+        <div class="card">
+            <h3>ഉന്നം പിഴക്കരുത്</h3>
+            <audio controls>
+                <source src="Unnampizhakkarith.m4a" type="audio/mp4">
+            </audio>
+            <a class="download-btn" href="Unnampizhakkarith.m4a" download>
+                Download
+            </a>
         </div>
 
-        <ul>
-            <li><a href="#">🏠 Home</a></li>
-            <li><a href="#">🔥 Trending</a></li>
-            <li><a href="#">😂 Troll Dialogues</a></li>
-            <li><a href="#">📥 Downloads</a></li>
-            <li><a href="#">⭐ Favorites</a></li>
-        </ul>
+        <div class="card">
+            <h3>എടാ ബാലകൃഷ്ണാ</h3>
+            <audio controls>
+                <source src="Edabalakrishna.m4a" type="audio/mp4">
+            </audio>
+            <a class="download-btn" href="Edabalakrishna.m4a" download>
+                Download
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>എടാ നാറി നിനക്ക് നാണമുണ്ടോ?</h3>
+            <audio controls>
+                <source src="song3.m4a" type="audio/mp4">
+            </audio>
+            <a class="download-btn" href="song3.m4a" download>
+                Download
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>സോറി ആളുമാറി</h3>
+            <audio controls>
+                <source src="Sorryaalumari.m4a" type="audio/mp4">
+            </audio>
+            <a class="download-btn" href="Sorryaalumari.m4a" download>
+                Download
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>മിണ്ടാതിരോയെടാ പട്ടി</h3>
+            <audio controls>
+                <source src="Mindathiriyedapatti.m4a" type="audio/mp4">
+            </audio>
+            <a class="download-btn" href="Mindathiriyedapatti.m4a" download>
+                Download
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>ഗ്രഹണിയും ആസ്മയും</h3>
+            <audio controls>
+                <source src="Grahani.m4a" type="audio/mp4">
+            </audio>
+            <a class="download-btn" href="Grahani.m4a" download>
+                Download
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>പിടിക്കവനെ</h3>
+            <audio controls>
+                <source src="Pidikkavane.m4a" type="audio/mp4">
+            </audio>
+            <a class="download-btn" href="Pidikkavane.m4a" download>
+                Download
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>സഖാക്കളെ, കേരള ഫയർ ഫോഴ്സിനും</h3>
+            <audio controls>
+                <source src="Sakhakkale.m4a" type="audio/mp4">
+            </audio>
+            <a class="download-btn" href="Sakhakkale.m4a" download>
+                Download
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>ഒരു മൂർഖനെയാണ് നീ നോവിച്ചു വിട്ടത്</h3>
+            <audio controls>
+                <source src="Moorkhan.m4a" type="audio/mp4">
+            </audio>
+            <a class="download-btn" href="Moorkhan.m4a" download>
+                Download
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>ഇതിപ്പോ മരപ്പട്ടിയും അല്ല</h3>
+            <audio controls>
+                <source src="Marappatti.m4a" type="audio/mp4">
+            </audio>
+            <a class="download-btn" href="Marappatti.m4a" download>
+                Download
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>എന്താത്, തമ്പുരാനറിയാ...</h3>
+            <audio controls>
+                <source src="Enthathu.m4a" type="audio/mp4">
+            </audio>
+            <a class="download-btn" href="Enthathu.m4a" download>
+                Download
+            </a>
+        </div>
 
     </div>
 
-    <!-- Main -->
-
-    <div class="main">
-
-        <input
-            type="text"
-            class="search"
-            placeholder="Search Troll Dialogues..."
-            id="searchBox"
-        >
-
-        <div class="hero">
-            <h1>TROLL TUNES</h1>
-            <p>Download Your Favorite Malayalam Troll Dialogues & Meme Sounds</p>
-        </div>
-
-        <h2 class="section-title">Popular Dialogues</h2>
-
-        <div class="grid" id="songsContainer">
-
-            <div class="card">
-                <h3>ഉന്നം പിഴക്കരുത്</h3>
-                <audio controls>
-                    <source src="Unnampizhakkarith.m4a">
-                </audio>
-                <a class="download-btn" href="Unnampizhakkarith.m4a" download>
-                    Download
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>എടാ ബാലകൃഷ്ണാ</h3>
-                <audio controls>
-                    <source src="Edabalakrishna.m4a">
-                </audio>
-                <a class="download-btn" href="Edabalakrishna.m4a" download>
-                    Download
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>എടാ നാറി നിനക്ക് നാണമുണ്ടോ?</h3>
-                <audio controls>
-                    <source src="song3.m4a">
-                </audio>
-                <a class="download-btn" href="song3.m4a" download>
-                    Download
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>സോറി ആളുമാറി</h3>
-                <audio controls>
-                    <source src="Sorryaalumari.m4a">
-                </audio>
-                <a class="download-btn" href="Sorryaalumari.m4a" download>
-                    Download
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>മിണ്ടാതിരോയെടാ പട്ടി</h3>
-                <audio controls>
-                    <source src="Mindathiriyedapatti.m4a">
-                </audio>
-                <a class="download-btn" href="Mindathiriyedapatti.m4a" download>
-                    Download
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>ഗ്രഹണിയും ആസ്മയും</h3>
-                <audio controls>
-                    <source src="Grahani.m4a">
-                </audio>
-                <a class="download-btn" href="Grahani.m4a" download>
-                    Download
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>പിടിക്കവനെ</h3>
-                <audio controls>
-                    <source src="Pidikkavane.m4a">
-                </audio>
-                <a class="download-btn" href="Pidikkavane.m4a" download>
-                    Download
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>സഖാക്കളെ, കേരള ഫയർ ഫോഴ്സിനും</h3>
-                <audio controls>
-                    <source src="Sakhakkale.m4a">
-                </audio>
-                <a class="download-btn" href="Sakhakkale.m4a" download>
-                    Download
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>ഒരു മൂർഖനെയാണ് നീ നോവിച്ചു വിട്ടത്</h3>
-                <audio controls>
-                    <source src="Moorkhan.m4a">
-                </audio>
-                <a class="download-btn" href="Moorkhan.m4a" download>
-                    Download
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>ഇതിപ്പോ മരപ്പട്ടിയും അല്ല</h3>
-                <audio controls>
-                    <source src="Marappatti.m4a">
-                </audio>
-                <a class="download-btn" href="Marappatti.m4a" download>
-                    Download
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>എന്താത്, തമ്പുരാനറിയാ...</h3>
-                <audio controls>
-                    <source src="Enthathu.m4a">
-                </audio>
-                <a class="download-btn" href="Enthathu.m4a" download>
-                    Download
-                </a>
-            </div>
-
-        </div>
-
-        <footer>
-            © 2026 TROLL TUNES by RUDY GAMING
-        </footer>
-
-    </div>
+    <footer>
+        © 2026 TROLL TUNES by RUDY GAMING
+    </footer>
 
 </div>
 
 <script>
+
+/* SIDEBAR */
+
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.getElementById("sidebar");
+
+menuBtn.addEventListener("click", function(){
+    sidebar.classList.toggle("active");
+});
+
+document.addEventListener("click", function(e){
+
+    if(
+        !sidebar.contains(e.target) &&
+        !menuBtn.contains(e.target)
+    ){
+        sidebar.classList.remove("active");
+    }
+
+});
+
+/* SEARCH */
 
 const searchBox = document.getElementById("searchBox");
 
@@ -356,14 +400,14 @@ searchBox.addEventListener("keyup", function(){
 
     let cards = document.querySelectorAll(".card");
 
-    cards.forEach(card=>{
+    cards.forEach(card => {
 
         let text = card.innerText.toLowerCase();
 
         card.style.display =
-        text.includes(value)
-        ? "block"
-        : "none";
+            text.includes(value)
+            ? "block"
+            : "none";
 
     });
 
