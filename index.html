@@ -1,259 +1,375 @@
 <!DOCTYPE html>
-<html>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N49H9Y5KEH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-N49H9Y5KEH');
-</script>
-    
+<html lang="ml">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ᴛʀᴏʟʟ ᴛᴜɴᴇs</title>
+<title>TROLL TUNES</title>
 
 <style>
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#0D0D0D;
+    background:#0f172a;
+    color:white;
 }
 
-header{
-    background:black;
-    padding:20px;
-    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+.container{
+    display:flex;
+    min-height:100vh;
 }
 
-header h1{
-    margin:0;
-    color: #4CAF50;
+/* Sidebar */
+
+.sidebar{
+    width:250px;
+    background:#111827;
+    padding:30px 20px;
+    position:fixed;
+    height:100%;
 }
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#22c55e;
+    margin-bottom:40px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin:20px 0;
+}
+
+.sidebar ul li a{
+    text-decoration:none;
+    color:#d1d5db;
+    font-size:18px;
+    transition:.3s;
+}
+
+.sidebar ul li a:hover{
+    color:#22c55e;
+}
+
+/* Main Content */
+
+.main{
+    margin-left:250px;
+    width:100%;
+    padding:30px;
+}
+
+/* Search */
+
+.search{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    background:#1e293b;
+    color:white;
+    margin-bottom:30px;
+    font-size:16px;
+}
+
+/* Hero */
 
 .hero{
-    background:#228B22;
-    text-align:center;
-    padding:80px 20px;
+    background:linear-gradient(135deg,#16a34a,#22c55e);
+    border-radius:25px;
+    padding:50px;
+    margin-bottom:35px;
 }
 
-.hero h2{
-    font-size:40px;
+.hero h1{
+    font-size:42px;
     margin-bottom:10px;
 }
 
 .hero p{
-    color:#FFFFFF;
-    margin-bottom:25px;
+    font-size:18px;
 }
 
-.button{
-    background:#000000;
-    color:white;
-    padding:15px 30px;
-    text-decoration:none;
-    border-radius:10px;
-}
+/* Section */
 
-.container{
-    max-width:1000px;
-    margin:auto;
-    padding:20px;
-}
-
-.song{
-    background:white;
-    padding:20px;
+.section-title{
     margin-bottom:20px;
-    border-radius:12px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    font-size:28px;
 }
 
-.song h3{
-    margin-top:0;
+/* Cards */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:25px;
 }
 
-.download{
-    display:inline-block;
-    background:#4CAF50;
-    color:white;
-    text-decoration:none;
-    padding:10px 20px;
-    border-radius:8px;
+.card{
+    background:#1e293b;
+    border-radius:20px;
+    padding:20px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
     margin-bottom:15px;
+    font-size:20px;
 }
 
 audio{
     width:100%;
+    margin-bottom:15px;
 }
+
+.download-btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#22c55e;
+    color:white;
+    padding:10px 20px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.download-btn:hover{
+    background:#16a34a;
+}
+
+/* Footer */
 
 footer{
     text-align:center;
     padding:30px;
-    color:#FFFFFF;
+    color:#9ca3af;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.sidebar{
+    position:relative;
+    width:100%;
+    height:auto;
+}
+
+.main{
+    margin-left:0;
+}
+
+.container{
+    flex-direction:column;
+}
+
+.hero h1{
+    font-size:30px;
+}
+
 }
 
 </style>
 </head>
-
 <body>
 
-<header>
-    <h1>🎶 𝚃𝚁𝙾𝙻𝙻 𝚃𝚄𝙽𝙴𝚂 </h1>
-</header>
+<div class="container">
 
-<section class="hero">
-    <h2>DOWNLOAD YOUR FAVORITE AUDIOS</h2>
-    <p>FOR MORE UPDATES SUBSCRIBE TO RUDY GAMING ON YOUTUBE</p>
+    <!-- Sidebar -->
 
-    <a class="button" href="#songs">
-        Browse Songs
-    </a>
-</section>
+    <div class="sidebar">
 
-<div class="container" id="songs">
+        <div class="logo">
+            🎵 TROLL TUNES
+        </div>
 
-    <div class="song">
-        <h3>ഉന്നം പിഴക്കരുത്</h3>
+        <ul>
+            <li><a href="#">🏠 Home</a></li>
+            <li><a href="#">🔥 Trending</a></li>
+            <li><a href="#">😂 Troll Dialogues</a></li>
+            <li><a href="#">📥 Downloads</a></li>
+            <li><a href="#">⭐ Favorites</a></li>
+        </ul>
 
-        <a class="download" href="Unnampizhakkarith.m4a" download>
-            Download
-        </a>
-
-        <audio controls>
-            <source src="Unnampizhakkarith.m4a" type="audio/mp4">
-        </audio>
     </div>
 
-    <div class="song">
-        <h3>എടാ ബാലകൃഷ്ണാ</h3>
+    <!-- Main -->
 
-        <a class="download" href="Edabalakrishna.m4a" download>
-            Download
-        </a>
+    <div class="main">
 
-        <audio controls>
-            <source src="Edabalakrishna.m4a" type="audio/mp4">
-        </audio>
-    </div>
+        <input
+            type="text"
+            class="search"
+            placeholder="Search Troll Dialogues..."
+            id="searchBox"
+        >
 
-    <div class="song">
-        <h3>എടാ നാറി നിനക്ക് നാണമുണ്ടോ?</h3>
+        <div class="hero">
+            <h1>TROLL TUNES</h1>
+            <p>Download Your Favorite Malayalam Troll Dialogues & Meme Sounds</p>
+        </div>
 
-        <a class="download" href="song3.m4a" download>
-            Download
-        </a>
+        <h2 class="section-title">Popular Dialogues</h2>
 
-        <audio controls>
-            <source src="song3.m4a" type="audio/mp4">
-        </audio>
-    </div>
-    
-     <div class="song">
-        <h3>സോറി ആളുമാറി</h3>
+        <div class="grid" id="songsContainer">
 
-        <a class="download" href="Sorryaalumari.m4a" download>
-            Download
-        </a>
+            <div class="card">
+                <h3>ഉന്നം പിഴക്കരുത്</h3>
+                <audio controls>
+                    <source src="Unnampizhakkarith.m4a">
+                </audio>
+                <a class="download-btn" href="Unnampizhakkarith.m4a" download>
+                    Download
+                </a>
+            </div>
 
-        <audio controls>
-            <source src="Sorryaalumari.m4a" type="audio/mp4">
-        </audio>
-    </div>
-    
-     <div class="song">
-        <h3>മിണ്ടാതിരോയെടാ പട്ടി</h3>
+            <div class="card">
+                <h3>എടാ ബാലകൃഷ്ണാ</h3>
+                <audio controls>
+                    <source src="Edabalakrishna.m4a">
+                </audio>
+                <a class="download-btn" href="Edabalakrishna.m4a" download>
+                    Download
+                </a>
+            </div>
 
-        <a class="download" href="Mindathiriyedapatti.m4a" download>
-            Download
-        </a>
+            <div class="card">
+                <h3>എടാ നാറി നിനക്ക് നാണമുണ്ടോ?</h3>
+                <audio controls>
+                    <source src="song3.m4a">
+                </audio>
+                <a class="download-btn" href="song3.m4a" download>
+                    Download
+                </a>
+            </div>
 
-        <audio controls>
-            <source src="Mindathiriyedapatti.m4a" type="audio/mp4">
-        </audio>
-    </div>
-    
-    <div class="song">
-        <h3>ഗ്രഹണിയും ആസ്മയും</h3>
+            <div class="card">
+                <h3>സോറി ആളുമാറി</h3>
+                <audio controls>
+                    <source src="Sorryaalumari.m4a">
+                </audio>
+                <a class="download-btn" href="Sorryaalumari.m4a" download>
+                    Download
+                </a>
+            </div>
 
-        <a class="download" href="Grahani.m4a" download>
-            Download
-        </a>
+            <div class="card">
+                <h3>മിണ്ടാതിരോയെടാ പട്ടി</h3>
+                <audio controls>
+                    <source src="Mindathiriyedapatti.m4a">
+                </audio>
+                <a class="download-btn" href="Mindathiriyedapatti.m4a" download>
+                    Download
+                </a>
+            </div>
 
-        <audio controls>
-            <source src="grahani.m4a" type="audio/mp4">
-        </audio>
-    </div>
+            <div class="card">
+                <h3>ഗ്രഹണിയും ആസ്മയും</h3>
+                <audio controls>
+                    <source src="Grahani.m4a">
+                </audio>
+                <a class="download-btn" href="Grahani.m4a" download>
+                    Download
+                </a>
+            </div>
 
-    <div class="song">
-        <h3>പിടിക്കവനെ</h3>
+            <div class="card">
+                <h3>പിടിക്കവനെ</h3>
+                <audio controls>
+                    <source src="Pidikkavane.m4a">
+                </audio>
+                <a class="download-btn" href="Pidikkavane.m4a" download>
+                    Download
+                </a>
+            </div>
 
-        <a class="download" href="Pidikkavane.m4a" download>
-            Download
-        </a>
+            <div class="card">
+                <h3>സഖാക്കളെ, കേരള ഫയർ ഫോഴ്സിനും</h3>
+                <audio controls>
+                    <source src="Sakhakkale.m4a">
+                </audio>
+                <a class="download-btn" href="Sakhakkale.m4a" download>
+                    Download
+                </a>
+            </div>
 
-        <audio controls>
-            <source src="Pidikkavane.m4a" type="audio/mp4">
-        </audio>
-    </div>
+            <div class="card">
+                <h3>ഒരു മൂർഖനെയാണ് നീ നോവിച്ചു വിട്ടത്</h3>
+                <audio controls>
+                    <source src="Moorkhan.m4a">
+                </audio>
+                <a class="download-btn" href="Moorkhan.m4a" download>
+                    Download
+                </a>
+            </div>
 
-    <div class="song">
-        <h3>സഖാക്കളെ, കേരള ഫയർ ഫോഴ്സിനും</h3>
+            <div class="card">
+                <h3>ഇതിപ്പോ മരപ്പട്ടിയും അല്ല</h3>
+                <audio controls>
+                    <source src="Marappatti.m4a">
+                </audio>
+                <a class="download-btn" href="Marappatti.m4a" download>
+                    Download
+                </a>
+            </div>
 
-        <a class="download" href="Sakhakkale.m4a" download>
-            Download
-        </a>
+            <div class="card">
+                <h3>എന്താത്, തമ്പുരാനറിയാ...</h3>
+                <audio controls>
+                    <source src="Enthathu.m4a">
+                </audio>
+                <a class="download-btn" href="Enthathu.m4a" download>
+                    Download
+                </a>
+            </div>
 
-        <audio controls>
-            <source src="Sakhakkale.m4a" type="audio/mp4">
-        </audio>
-    </div>
+        </div>
 
-    <div class="song">
-        <h3>ഒരു മൂർഖനെയാണ് നി നോവിച്ചു വിട്ടത്</h3>
+        <footer>
+            © 2026 TROLL TUNES by RUDY GAMING
+        </footer>
 
-        <a class="download" href="Moorkhan.m4a" download>
-            Download
-        </a>
-
-        <audio controls>
-            <source src="Moorkhan.m4a" type="audio/mp4">
-        </audio>
-    </div>
-
-    <div class="song">
-        <h3>ഇതിപ്പോ മരപ്പട്ടിയും അല്ല</h3>
-
-        <a class="download" href="Marappatti.m4a" download>
-            Download
-        </a>
-
-        <audio controls>
-            <source src="Marappatti.m4a" type="audio/mp4">
-        </audio>
-    </div>
-
-    <div class="song">
-        <h3>എന്താത്, തമ്പുരാനറിയാ...</h3>
-
-        <a class="download" href="Enthathu.m4a" download>
-            Download
-        </a>
-
-        <audio controls>
-            <source src="Enthathu.m4a" type="audio/mp4">
-        </audio>
     </div>
 
 </div>
 
-<footer>
-    © 2026 TROLL TUNES by RUDY GAMING 
-</footer>
+<script>
+
+const searchBox = document.getElementById("searchBox");
+
+searchBox.addEventListener("keyup", function(){
+
+    let value = this.value.toLowerCase();
+
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card=>{
+
+        let text = card.innerText.toLowerCase();
+
+        card.style.display =
+        text.includes(value)
+        ? "block"
+        : "none";
+
+    });
+
+});
+
+</script>
 
 </body>
 </html>
