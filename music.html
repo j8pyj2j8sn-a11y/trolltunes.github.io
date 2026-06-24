@@ -59,21 +59,22 @@ perspective:1000px;
 .album-cover{
 width:320px;
 height:320px;
-border-radius:30px;
+border-radius:50%;
 overflow:hidden;
+
+border:4px solid rgba(255,255,255,.15);
+
 box-shadow:
-0 20px 60px rgba(0,0,0,.6),
-0 0 30px rgba(255,255,255,.08);
+0 0 40px rgba(255,255,255,.12),
+0 20px 60px rgba(0,0,0,.6);
 }
 
 #cover{
-    width:100%;
-    max-width:280px;
-    aspect-ratio:1/1;
-    object-fit:cover;
-    border-radius:25px;
-    display:block;
-    margin:auto;
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:50%;
+display:block;
 }
 .player{
 width:95%;
