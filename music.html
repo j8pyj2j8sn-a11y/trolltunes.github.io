@@ -72,20 +72,35 @@ margin-bottom:15px;
 perspective:1000px;
 }
 
-..album-cover img{
+.album-cover{
+width:220px;
+height:280px;
+
+position:relative;
+z-index:5;
+
+overflow:hidden;
+border-radius:25px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.15);
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.45);
+}
+    
+#cover{
 width:100%;
 height:100%;
 object-fit:cover;
 border-radius:25px;
 display:block;
 }
-#cover{
-width:100%;
-height:100%;
-object-fit:cover;
-border-radius:50%;
-display:block;
-}
+    
 .player{
 width:95%;
 max-width:430px;
