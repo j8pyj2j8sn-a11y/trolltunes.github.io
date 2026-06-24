@@ -481,7 +481,12 @@ const artist=document.getElementById("artist");
 const cover=document.getElementById("cover");
 const progress=document.getElementById("progress");
 const downloadBtn=document.getElementById("downloadBtn");
-
+const gradients=[
+"radial-gradient(circle at top,#3b82f6,#000)",
+"radial-gradient(circle at top,#ef4444,#000)",
+"radial-gradient(circle at top,#10b981,#000)"
+];
+    
 function loadSong(index){
 
 title.textContent = songs[index].title;
@@ -491,6 +496,7 @@ cover.src = songs[index].cover;
 audio.src = songs[index].file;
 
 downloadBtn.href = songs[index].file;
+document.body.style.background=gradients[index];
 
 }
 
