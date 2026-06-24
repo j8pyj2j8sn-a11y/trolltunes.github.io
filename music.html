@@ -494,17 +494,21 @@ downloadBtn.href = songs[index].file;
 
 }
 
+const album=document.querySelector(".album-cover");
+
 function togglePlay(){
 
 if(audio.paused){
 
 audio.play();
-document.getElementById("playBtn").innerHTML="❚❚";
+album.classList.add("playing");
+playBtn.innerHTML="❚❚";
 
 }else{
 
 audio.pause();
-document.getElementById("playBtn").innerHTML="►";
+album.classList.remove("playing");
+playBtn.innerHTML="►";
 
 }
 
