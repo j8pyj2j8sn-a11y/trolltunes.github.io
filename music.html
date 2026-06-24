@@ -480,51 +480,7 @@ carousel.appendChild(card);
 });
 
 }
-
-function loadSong(index){
-
-audio.src=songs[index].file;
-
-songTitle.textContent=
-songs[index].title;
-
-miniCover.src=
-songs[index].cover;
-
-downloadBtn.href=
-songs[index].file;
-
-document.body.style.background=
-gradients[index];
-
-renderCarousel();
-
-}
-
-function togglePlay(){
-
-if(audio.paused){
-
-audio.play();
-playBtn.innerHTML="❚❚";
-
-}else{
-
-audio.pause();
-playBtn.innerHTML="▶";
-
-}
-
-}
-
-function nextSong(){
-
-currentSong++;
-
-if(currentSong>=songs.length){
-currentSong=0;
-}
-  function updateBackgroundFromCover(imageSrc){
+function updateBackgroundFromCover(imageSrc){
 
 const img = new Image();
 
@@ -574,6 +530,52 @@ img.src=imageSrc;
 
 }
 
+
+function loadSong(index){
+
+audio.src=songs[index].file;
+
+songTitle.textContent=
+songs[index].title;
+
+miniCover.src=
+songs[index].cover;
+
+downloadBtn.href=
+songs[index].file;
+
+updateBackgroundFromCover(
+songs[index].cover
+);
+
+renderCarousel();
+
+}
+
+function togglePlay(){
+
+if(audio.paused){
+
+audio.play();
+playBtn.innerHTML="❚❚";
+
+}else{
+
+audio.pause();
+playBtn.innerHTML="▶";
+
+}
+
+}
+
+function nextSong(){
+
+currentSong++;
+
+if(currentSong>=songs.length){
+currentSong=0;
+}
+  
 loadSong(currentSong);
 
 audio.play();
