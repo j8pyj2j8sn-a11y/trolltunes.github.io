@@ -493,7 +493,8 @@ cover:"cover3.JPG"
 
 ];
 
-let currentSong=0;
+let currentSong =
+parseInt(localStorage.getItem("currentSong")) || 0;
 
 const audio=document.getElementById("audio");
 const title=document.getElementById("title");
