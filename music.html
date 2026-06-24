@@ -26,6 +26,23 @@ radial-gradient(circle at top,
 #000000 100%);
 color:white;
 }
+    
+body::before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:-1;
+
+background:
+radial-gradient(
+circle,
+transparent 30%,
+rgba(0,0,0,.25) 55%,
+rgba(0,0,0,.65) 80%,
+rgba(0,0,0,.9) 100%
+);
+}
 
 .player-wrapper{
 width:100%;
