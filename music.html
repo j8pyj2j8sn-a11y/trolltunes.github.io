@@ -91,7 +91,8 @@ backdrop-filter:blur(20px);
 border:1px solid rgba(255,255,255,.15);
 
 box-shadow:
-0 15px 40px rgba(0,0,0,.4);
+0 15px 40px rgba(0,0,0,.4),
+0 0 30px rgba(255,255,255,.15);
 
 transition:
 transform .6s ease,
@@ -409,7 +410,8 @@ card.style.transform=
 "translateX(0px) scale(1)";
 card.style.zIndex="5";
 card.style.opacity="1";
-
+card.style.boxShadow=
+"0 20px 50px rgba(0,0,0,.5), 0 0 60px rgba(255,255,255,.4)";
 }
 
 else if(offset===-1){
@@ -417,7 +419,8 @@ else if(offset===-1){
 card.style.transform=
 "translateX(-180px) rotateY(40deg) scale(.85)";
 card.style.opacity=".7";
-
+card.style.boxShadow=
+"0 10px 25px rgba(0,0,0,.3)";
 }
 
 else if(offset===1){
@@ -425,7 +428,8 @@ else if(offset===1){
 card.style.transform=
 "translateX(180px) rotateY(-40deg) scale(.85)";
 card.style.opacity=".7";
-
+card.style.boxShadow=
+"0 10px 25px rgba(0,0,0,.3)";
 }
 
 else if(offset===-2){
@@ -433,7 +437,8 @@ else if(offset===-2){
 card.style.transform=
 "translateX(-320px) rotateY(55deg) scale(.7)";
 card.style.opacity=".35";
-
+card.style.boxShadow=
+"0 10px 25px rgba(0,0,0,.3)";
 }
 
 else if(offset===2){
@@ -441,7 +446,8 @@ else if(offset===2){
 card.style.transform=
 "translateX(320px) rotateY(-55deg) scale(.7)";
 card.style.opacity=".35";
-
+card.style.boxShadow=
+"0 10px 25px rgba(0,0,0,.3)";
 }
 
 card.innerHTML=
