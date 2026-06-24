@@ -472,10 +472,12 @@ function togglePlay(){
 if(audio.paused){
 
 audio.play();
+document.getElementById("playBtn").innerHTML="❚❚";
 
 }else{
 
 audio.pause();
+document.getElementById("playBtn").innerHTML="►";
 
 }
 
