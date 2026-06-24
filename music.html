@@ -78,55 +78,45 @@ font-size:18px;
 }
 
 .controls{
+margin-top:35px;
 display:flex;
 justify-content:center;
 align-items:center;
-gap:25px;
-margin-top:30px;
+gap:28px;
 }
 
 .controls button{
-width:70px;
-height:70px;
+width:72px;
+height:72px;
 border:none;
-border-radius:50%;
-cursor:pointer;
-
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(20px);
-
+border-radius:22px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+border:1px solid rgba(255,255,255,.18);
 color:white;
-font-size:24px;
-
+font-size:28px;
+cursor:pointer;
+transition:.3s;
 box-shadow:
-0 8px 30px rgba(0,0,0,.4),
-inset 0 1px 1px rgba(255,255,255,.15);
-
-transition:all .3s ease;
+0 8px 32px rgba(0,0,0,.35),
+inset 0 1px 1px rgba(255,255,255,.25);
 }
 
 .controls button:hover{
-transform:translateY(-4px) scale(1.05);
-background:rgba(255,255,255,.15);
+transform:translateY(-4px);
+background:rgba(255,255,255,.18);
 }
 
-.play-btn{
-width:90px !important;
-height:90px !important;
-
-background:linear-gradient(
-135deg,
-#ffffff,
-#d9d9d9
-) !important;
-
-color:#111 !important;
-
-font-size:32px;
-
+#playBtn{
+width:90px;
+height:90px;
+border-radius:28px;
+font-size:36px;
+background:rgba(255,255,255,.18);
 box-shadow:
-0 10px 40px rgba(255,255,255,.25),
-0 0 30px rgba(255,255,255,.15);
+0 12px 40px rgba(0,0,0,.4),
+inset 0 1px 1px rgba(255,255,255,.3);
 }
 
 .progress-container{
