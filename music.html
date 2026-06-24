@@ -475,8 +475,9 @@ songs[index].cover;
 downloadBtn.href=
 songs[index].file;
 
-document.body.style.background=
-gradients[index];
+updateBackgroundFromCover(
+songs[index].cover
+);
 
 renderCarousel();
 
