@@ -242,25 +242,57 @@ background-position:300% 50%;
 }
 
 /* Soft Ambient Glow */
+/* =========================
+   PREMIUM LIQUID PLAYER
+========================= */
+
+.player{
+    position:relative;
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:2px;
+    border-radius:40px;
+    overflow:hidden;
+}
+
+/* Animated RGB Border */
+.player::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        90deg,
+        #ff006e,
+        #8338ec,
+        #3a86ff,
+        #00f5d4,
+        #ffbe0b,
+        #ff006e
+    );
+
+    background-size:400% 400%;
+    animation:rgbFlow 6s linear infinite;
+
+    z-index:0;
+}
+
+/* RGB Glow */
 .player::after{
     content:"";
     position:absolute;
-    inset:-10px;
+    inset:-15px;
 
-    border-radius:50px;
+    background:inherit;
 
-    background:radial-gradient(
-        circle,
-        rgba(255,255,255,.12),
-        transparent 70%
-    );
+    filter:blur(30px);
+    opacity:.6;
 
-    filter:blur(20px);
-
-    z-index:-2;
-    pointer-events:none;
+    z-index:-1;
 }
 
+/* Main Glass Layer */
 .player-inner{
     position:relative;
     z-index:2;
@@ -273,223 +305,220 @@ background-position:300% 50%;
 
     border-radius:38px;
 
-    background:linear-gradient(
+    background:
+    linear-gradient(
         135deg,
-        rgba(255,255,255,.30),
-        rgba(255,255,255,.08)
+        rgba(255,255,255,.18),
+        rgba(255,255,255,.06)
     );
 
     backdrop-filter:blur(40px) saturate(180%);
     -webkit-backdrop-filter:blur(40px) saturate(180%);
 
-    border:1px solid rgba(255,255,255,.25);
+    border:1px solid rgba(255,255,255,.15);
 
     box-shadow:
-        inset 0 1px 1px rgba(255,255,255,.45),
+        inset 0 1px 1px rgba(255,255,255,.4),
         inset 0 -1px 1px rgba(255,255,255,.05),
         0 20px 50px rgba(0,0,0,.25);
 }
-/* SONG INFO */
 
+/* Reflection */
+.player-inner::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:50%;
+
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(255,255,255,.18),
+        transparent
+    );
+
+    pointer-events:none;
+}
+
+/* Album Cover */
+.album-art{
+    width:88px;
+    height:88px;
+
+    border-radius:24px;
+    overflow:hidden;
+    flex-shrink:0;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
+}
+
+.album-art img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Song Details */
 .song-info{
-display:flex;
-align-items:center;
-gap:15px;
-min-width:250px;
+    min-width:180px;
 }
 
-.mini-cover{
-width:70px;
-height:70px;
-border-radius:18px;
-object-fit:cover;
+.song-title{
+    color:#fff;
+    font-size:2rem;
+    font-weight:700;
+    margin-bottom:5px;
 }
 
-.song-text h3{
-font-size:22px;
-font-weight:600;
+.artist{
+    color:rgba(255,255,255,.7);
+    font-size:1rem;
 }
 
-.song-text p{
-font-size:14px;
-opacity:.8;
-}
-
-/* PROGRESS */
-
-.progress-section{
-flex:1;
+/* Progress Section */
+.progress-area{
+    flex:1;
 }
 
 .time-row{
-display:flex;
-justify-content:space-between;
-font-size:13px;
-margin-bottom:8px;
-opacity:.8;
+    display:flex;
+    justify-content:space-between;
+    color:#fff;
+    font-size:.9rem;
+    margin-bottom:10px;
 }
 
-#progress{
-width:100%;
-height:8px;
+.progress-bar{
+    width:100%;
+    height:8px;
 
-appearance:none;
--webkit-appearance:none;
+    border-radius:20px;
 
-border-radius:30px;
+    background:
+    rgba(255,255,255,.15);
 
-background:
-rgba(255,255,255,.15);
-
-cursor:pointer;
+    overflow:hidden;
 }
 
-#progress::-webkit-slider-thumb{
+.progress{
+    width:0%;
+    height:100%;
 
--webkit-appearance:none;
+    border-radius:20px;
 
-width:22px;
-height:22px;
-
-border-radius:50%;
-
-background:white;
-
-box-shadow:
-0 0 15px #00ffff,
-0 0 25px #ff00ff;
+    background:
+    linear-gradient(
+        90deg,
+        #00f5d4,
+        #3a86ff
+    );
 }
 
-/* CONTROLS */
-
+/* Controls */
 .controls{
-display:flex;
-align-items:center;
-gap:12px;
+    display:flex;
+    align-items:center;
+    gap:16px;
 }
 
-.icon-btn{
-border:none;
-background:none;
-color:white;
+.control-btn{
+    width:52px;
+    height:52px;
 
-font-size:28px;
-cursor:pointer;
+    border:none;
+    cursor:pointer;
 
-transition:.3s;
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.12);
+
+    color:#fff;
+
+    backdrop-filter:blur(20px);
+
+    transition:.3s;
 }
 
-.icon-btn:hover{
-transform:scale(1.15);
+.control-btn:hover{
+    transform:scale(1.08);
 }
 
 .play-btn{
-width:72px;
-height:72px;
+    width:72px;
+    height:72px;
 
-border-radius:50%;
+    font-size:1.4rem;
 
-border:2px solid rgba(255,255,255,.25);
+    border-radius:50%;
 
-background:
-rgba(255,255,255,.08);
+    background:
+    rgba(255,255,255,.18);
 
-color:white;
-
-font-size:30px;
-
-cursor:pointer;
-
-backdrop-filter:blur(15px);
-
-transition:.3s;
+    border:1px solid rgba(255,255,255,.2);
 }
 
-.play-btn:hover{
-transform:scale(1.05);
-}
-
-/* DOWNLOAD */
-
+/* Download Button */
 .download-btn{
-padding:12px 22px;
+    padding:14px 32px;
 
-border-radius:20px;
+    border-radius:999px;
 
-text-decoration:none;
-color:white;
+    text-decoration:none;
+    color:white;
+    font-weight:700;
 
-font-weight:600;
+    background:
+    rgba(255,255,255,.12);
 
-border:1px solid rgba(255,255,255,.2);
+    border:1px solid rgba(255,255,255,.18);
 
-background:
-rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
 
-transition:.3s;
+    transition:.3s;
 }
 
 .download-btn:hover{
-transform:translateY(-2px);
-
-box-shadow:
-0 0 20px rgba(0,255,255,.35);
+    transform:translateY(-2px);
 }
 
-/* ===========================
-   TABLET
-=========================== */
-
+/* Mobile */
 @media(max-width:900px){
 
 .player-inner{
-flex-wrap:wrap;
-justify-content:center;
+    flex-direction:column;
+    text-align:center;
 }
 
-.song-info{
-width:100%;
-justify-content:center;
-}
-
-.progress-section{
-width:100%;
-}
-
-}
-
-/* ===========================
-   MOBILE
-=========================== */
-
-@media(max-width:600px){
-
-.logo{
-letter-spacing:4px;
-}
-
-.song-info{
-flex-direction:column;
-text-align:center;
+.progress-area{
+    width:100%;
 }
 
 .controls{
-width:100%;
-justify-content:center;
-}
-
-.download-btn{
-width:100%;
-text-align:center;
-}
-
-.play-btn{
-width:65px;
-height:65px;
+    justify-content:center;
 }
 
 }
+@keyframes rgbFlow{
 
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
 </style>
 
 </head>
