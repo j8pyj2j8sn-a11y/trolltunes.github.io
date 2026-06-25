@@ -206,22 +206,58 @@ background-position:300% 50%;
 }
 
 /* Extra soft ambient glow */
+.player{
+    position:relative;
+    width:100%;
+    border-radius:38px;
+    overflow:hidden; /* Fix edge overflow */
+    isolation:isolate;
+}
+
+/* Premium RGB Glow */
+.player::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    border-radius:38px;
+
+    background:linear-gradient(
+        90deg,
+        #ff006e,
+        #8338ec,
+        #3a86ff,
+        #00f5d4,
+        #ffbe0b,
+        #ff006e
+    );
+
+    background-size:400% 400%;
+    animation:rgbFlow 8s linear infinite;
+
+    filter:blur(12px);
+    opacity:.6;
+
+    z-index:-1;
+}
+
+/* Soft Ambient Glow */
 .player::after{
     content:"";
     position:absolute;
-    inset:-25px;
+    inset:-10px;
 
-    border-radius:60px;
+    border-radius:50px;
 
     background:radial-gradient(
         circle,
-        rgba(255,255,255,.15),
+        rgba(255,255,255,.12),
         transparent 70%
     );
 
-    filter:blur(30px);
+    filter:blur(20px);
 
-    z-index:0;
+    z-index:-2;
     pointer-events:none;
 }
 
@@ -237,12 +273,11 @@ background-position:300% 50%;
 
     border-radius:38px;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.30),
-            rgba(255,255,255,.08)
-        );
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,.30),
+        rgba(255,255,255,.08)
+    );
 
     backdrop-filter:blur(40px) saturate(180%);
     -webkit-backdrop-filter:blur(40px) saturate(180%);
@@ -253,56 +288,6 @@ background-position:300% 50%;
         inset 0 1px 1px rgba(255,255,255,.45),
         inset 0 -1px 1px rgba(255,255,255,.05),
         0 20px 50px rgba(0,0,0,.25);
-}
-
-/* Liquid reflection */
-.player-inner::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    height:50%;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(255,255,255,.35),
-            transparent
-        );
-
-    pointer-events:none;
-}
-
-/* Glass shine blob */
-.player-inner::after{
-    content:"";
-    position:absolute;
-
-    width:180px;
-    height:180px;
-
-    top:-90px;
-    left:-50px;
-
-    background:rgba(255,255,255,.20);
-
-    filter:blur(50px);
-    border-radius:50%;
-
-    pointer-events:none;
-}
-
-@keyframes rgbFlow{
-    0%{
-        background-position:0% 50%;
-    }
-    50%{
-        background-position:100% 50%;
-    }
-    100%{
-        background-position:0% 50%;
-    }
 }
 /* SONG INFO */
 
